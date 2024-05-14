@@ -26,6 +26,9 @@ node index.js
 ```
 
 ## Author
--#### Furkan Alçıkaya
-furkan.furkan2002@gmail.com
-www.linkedin.com/in/furkan-alçıkaya-04721a182
+
+
+- #### Furkan Alçıkaya
+
+        furkan.furkan2002@gmail.com
+        www.linkedin.com/in/furkan-alçıkaya-04721a182
