@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famagusta News</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('/images/newspagebackground.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+        }
+
+        .button-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.6); 
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 70%;
+            width: 100%; 
+            max-height: 40%;
+            height: 100%;
+            box-sizing:content-box;
+            position: relative;
+            top: 25%;
+        }
+
+        .button{
+            display: block;
+            padding: 100px 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: rgba(199, 115, 37, 0.89);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            transition: background 0.6s ease , width 0.6s ease  ,width 0.6s ease, color 0.2s ease-in , border-radius 0.3s ease , height 0.6s ease;
+            border-radius: 12px;
+            margin: 8px 8px; 
+            width: 20%;
+            box-sizing: border-box; 
+        }
+        .button:hover{
+            width: 32%;
+            height: 24%;
+            color: rgba(255, 255, 255, 0);
+            border-radius: 20px;
+        }
+
+        .events-bg:hover{
+            background-image: url('/images/events.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .roads-bg:hover{
+            background-image: url('/images/roads.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .announcements-bg:hover{
+            background-image: url('/images/announcements.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .back-button {
+            position: absolute; 
+            top: 50px; 
+            left: 50px;
+        }
+
+        .back-button a {
+            display: block; 
+        }
+
+        .back-button img {
+            display: block; 
+            width: 50px; 
+            height: auto; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="/news/events" class="button events-bg" target="_self">
+            Upcoming Events
+        </a>
+        <a href="/news/roads" class="button roads-bg" target="_self">
+            Latest Roads News
+        </a>
+        <a href="/news/announcements" class="button announcements-bg" target="_self">
+            Latest Announcements
+        </a>
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div> 
+    </div>
+
+    
+       
+</body>
+</html>

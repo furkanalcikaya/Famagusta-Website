@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Payment</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+</head>
+<style>
+    .body,html{
+        height: 100%;
+        margin: 0;
+        background-image: url('/images/payment.jpg');
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+    .payment-container{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        padding: 20px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0vh auto 10vh;
+        max-width: 70%;
+        width: 100%; 
+        max-height: 80%;
+        height: 100%;
+        box-sizing:border-box;
+        position: relative;
+        top: 70px;
+        overflow-y: auto; 
+        height: 80vh;
+    }
+
+    .payment-container p{
+        text-align: left;
+        font-size: large;
+        font-weight: 700;
+        display: flex;
+        margin-right: 50px;
+        color: black;
+    }
+    .payment-container input{
+        display: inline-block;
+        width: calc(50% - 5px); /* İki elemanın yan yana sığması için genişlik ayarı */
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #000;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease, width 0.3s ease, color 0.2s ease, border-radius 0.5s ease;
+        border-radius: 12px;
+        margin: 8px 5px; /* Elemanlar arasındaki boşluk */
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 35%;
+    }
+    .payment-container input:user-invalid{
+        border: 3px solid red;
+        } 
+    .payment-container input:hover{
+        border-radius: 30px;
+    }   
+
+    .bill-input::-webkit-inner-spin-button, .bill-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }    
+    
+    .payment-container button{
+        display: inline-block;
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(199, 115, 37, 0.89);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease , width 0.3s ease  , color 0.2s ease , border-radius 0.5s ease;
+        border-radius: 8px;
+        margin: 8px 0; 
+        width: 20%; 
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .payment-container button:hover{
+        background: rgba(255, 255, 255, 0.9);
+        width: 20%;
+        font-weight: 1200;
+        border-radius: 30px;
+        color: rgba(199, 115, 37, 0.89);
+    }
+
+    
+
+    .logo{
+        height: 80px;
+        width: auto;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+        align-self: center;
+        margin: 0 auto;
+
+    }
+    .back-button {
+        position: absolute; 
+        top: 50px; 
+        left: 50px;
+    }
+
+    .back-button a {
+        display: block; 
+    }
+
+    .back-button img {
+        display: block; 
+        width: 50px; 
+        height: auto; 
+    }
+
+
+</style>
+<body>
+    <div class="payment-container">
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div> 
+
+        <form action="/query-bill" method="POST">
+            <input type="number" name="bill_id" placeholder="Enter Bill ID" required required class="bill-input" minlength="6" maxlength="6" oninput="this.value=this.value.slice(0,this.maxLength)" title="Bill ID must be exactly 6 digits">
+            <button type="submit">Query the Bill</button>
+        </form>
+
+        <% if (bill) { %>
+            <div >
+                <p>Bill ID: <%= bill.bill_id %></p>
+                <p>Bill Fee: <%= bill.fee %></p>
+                <button onclick="processPayment('<%= bill._id %>')">Pay</button>
+                <p id="message"></p> 
+            </div>
+        <% } else { %>
+            <p><%= error ? error : 'An error occurred while loading information.' %></p>
+        <% } %>
+    </div>
+    
+    
+    <script>
+        function processPayment(billId) {
+            var messageElement = document.getElementById('message');
+            messageElement.innerHTML = 'Your payment is being made. Please wait...';
+
+            setTimeout(function() {
+                messageElement.innerHTML = 'Payment successful!';
+
+                setTimeout(function() {
+                    // Burada '/delete-bills/:id' rotasına bir DELETE isteği göndermeniz gerekiyor.
+                    // Bu işlemi yapmak için fetch API kullanabilirsiniz.
+                    fetch('/delete-bills/' + billId, { method: 'DELETE' })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Deleting is not success.');
+                        return response.json();
+                    })
+                    .then(data => {
+                        window.location.href = '/payment'; // Ana sayfaya yönlendir
+                    })
+                    .catch(error => {
+                        messageElement.innerHTML = 'There is an error: ' + error;
+                    });
+                }, 3000);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

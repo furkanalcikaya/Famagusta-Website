@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Worker</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+    .body,html{
+        height: 100%;
+        margin: 0;
+        background-image: url('/images/mayorpagebackground.jpg');
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-size: cover; 
+        }
+    .log-out{
+        position: absolute; 
+        top: 50px; 
+        right: 50px;
+    }
+    .log-out p{
+        text-align: left;
+        font-size: large;
+        font-weight: 700;
+        display: flex;
+        color: rgba(199, 115, 37, 0.89);
+        transition:  font-size 0.5s ease;
+    }
+    .log-out p:hover{
+        text-align: left;
+        font-size: x-large;
+        font-weight: 1000;
+        display: flex;
+    }
+    .log-out a{
+        text-decoration: none;
+    }
+    .worker-container{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        padding-right: 20px;
+        padding-left: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0vh auto 10vh;
+        max-width: 70%;
+        width: 100%; 
+        max-height: 80%;
+        height: 100%;
+        box-sizing:border-box;
+        position: relative;
+        top: 70px;
+        height: 80vh;
+        overflow-y: auto; 
+        padding-bottom: 50px;
+    }    
+    .worker-container form {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-top: 100px;
+    }    
+    .bill-input{
+        display: inline-block;
+        width: calc(50% - 5px); /* İki elemanın yan yana sığması için genişlik ayarı */
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #000;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease, width 0.3s ease, color 0.2s ease, border-radius 0.3s ease;
+        border-radius: 12px;
+        margin: 8px 5px; /* Elemanlar arasındaki boşluk */
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 35%;
+    }
+    
+
+    .bill-input:hover{
+        background: rgba(255, 255, 255, 0.9);
+        width: 35%;
+        font-weight: 1200;
+        border-radius: 30px;
+        }
+    .worker-container button{
+        display: inline-block;
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(199, 115, 37, 0.89);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease , width 0.3s ease  , color 0.2s ease , border-radius 0.3s ease;
+        border-radius: 8px;
+        margin: 8px 0; 
+        width: 20%; 
+        box-sizing: border-box;
+        cursor: pointer;
+        }
+    .worker-container button:hover{
+        background: rgba(255, 255, 255, 0.9);
+        width: 20%;
+        font-weight: 1200;
+        border-radius: 30px;
+        color: rgba(199, 115, 37, 0.89);
+        }
+    .worker-container input:user-invalid{
+        border: 3px solid red;
+        }    
+    /*input alanındaki ok yuşlarını gizlemek için*/
+    .bill-input::-webkit-inner-spin-button, .bill-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    #alertBox{
+        display: none;
+        position: fixed; /* Sayfanın belirli bir konumuna sabitler */
+        left: 50%; /* Yatay eksende sayfanın ortasına yerleştir */
+        top: 50%; /* Dikey eksende sayfanın ortasına yerleştir */
+        transform: translate(-50%, -50%); /* Tam ortalanmasını sağlar */
+        background-color: white;
+        color: black;
+        border-radius: 15px;
+        border: 3px solid rgba(199, 115, 37, 0.89);
+        z-index: 999;
+        width: 600px;
+        box-sizing: border-box;
+        overflow: auto; 
+        font-size:xx-large;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center; 
+        overflow-y: auto;
+        }
+
+    .bills-list {
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        width: 97%;
+        box-sizing: border-box;
+        }
+
+    .bills-item {
+        display: grid;
+        grid-template-columns:40% 40% 20%; 
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+    .bills-category, .news-title, .news-content {
+        margin-right: 10px; /* Sağa doğru boşluk bırakır */
+        }
+
+    .bills-item form {
+        margin: 0; /* Form için varsayılan marjı kaldırır */
+        }
+
+    .bills-item button {
+        display: inline-block;  
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(199, 115, 37, 0.89);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease , width 0.3s ease  , color 0.2s ease , border-radius 0.3s ease;
+        border-radius: 8px;
+        margin: 8px 0; 
+        width: 40%; 
+        box-sizing: border-box;
+        cursor: pointer;
+        }
+    .bills-item button:hover{
+        background: rgba(255, 255, 255, 0.9);
+        width: 40%;
+        font-weight: 1200;
+        border-radius: 30px;
+        color: rgba(199, 115, 37, 0.89);
+        }
+    </style>
+</head>
+<body>
+    <div class="worker-container">
+        <form id="messageForm" action="/add-bill" method="post">
+            <input type="number" name="bill_id" placeholder="Bill ID" required class="bill-input" minlength="6" maxlength="6" oninput="this.value=this.value.slice(0,this.maxLength)" title="Bill ID must be exactly 6 digits">
+            <input type="number" name="fee" placeholder="Bill Fee (₺)"  required class="bill-input">
+            <button type="submit">Add Bill</button>
+        </form>
+        <div id="alertBox" style="display:none;">Bill is added successfully!</div>
+        <script src="/js/form2.js"></script>
+
+        <div class="log-out">
+            <a href="/workers" target="_self">
+                <p>Log out</p>
+            </a>
+        </div>
+        <div class="bills-list">
+            <% Bills.forEach(function(item) { %>
+                <div class="bills-item">
+                    <div class="bills-bill_id">Bill ID: <%= item.bill_id %></div>
+                    <div class="bills-fee"><%= item.fee %> ₺</div>
+                    <form action="/delete-bills/<%= item._id %>" method="post">
+                    <button type="submit">Delete</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div> 
+
+    </div>
+</body>
+</html>

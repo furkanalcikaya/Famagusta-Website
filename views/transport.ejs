@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transport</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        body, html{
+            height: 100%;
+            margin: 0;
+            background-image: url('/images/transportbackground.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+        }
+
+        .photo-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 80%;
+            width: 100%; 
+            max-height: 70%;
+            height: 100%;
+            box-sizing:content-box;
+            position: relative;
+            top: 10%;
+        }
+        .photo-slider {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .photo {
+            max-width: 30%; 
+            max-height: 40%;
+            opacity: 0.5; 
+            transition: opacity 2s ; 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-left: 3%;
+            margin: 8px 8px; 
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 15px;
+        }
+
+        .photo.active {
+            opacity: 1; 
+            max-width: 60%;
+            max-height: 80%;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(199, 115, 37, 0.89);
+            background-color: rgba(255, 255, 255, 0) ;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size:xx-large;
+        }
+
+        .prev {
+            left: 50px;
+        }
+
+        .next {
+            right: 50px;
+        }
+
+        .back-button {
+            position: absolute; 
+            top: 50px; 
+            left: 50px;
+        }
+
+        .back-button a {
+            display: block; 
+        }
+
+        .back-button img {
+            display: block; 
+            width: 50px; 
+            height: auto; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="photo-container">
+        <div class="photo-slider">
+            <img src="/images/bus1.jpeg" alt="Photo 1" class="photo active">
+            <img src="/images/bus2.jpeg" alt="Photo 2" class="photo">
+            <img src="/images/bus3.jpeg" alt="Photo 3" class="photo">
+        </div>
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div> 
+        <button class="prev" onclick="changePhoto(-1)">❮</button>
+        <button class="next" onclick="changePhoto(1)">❯</button>
+    </div>
+    
+    <script src="/js/transport.js"></script>
+    
+</body>
+</html>

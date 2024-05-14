@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Famagusta</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('/images/aboutpage.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+        }
+
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 80%;
+            width: 100%; 
+            max-height: 80%;
+            height: 100%;
+            box-sizing:content-box;
+            position: relative;
+            top: 10%;
+            overflow-y: auto; 
+            height: 80vh;
+        }
+
+        .content {
+            height: 100%;
+            max-height: 80%;
+            margin: 20px;
+            margin-top: 10%;
+        }
+        
+
+        .content p {
+            text-align: justify;
+            font-size: large;
+            margin-top: 10%;
+            margin-bottom: 100px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 80px;
+            padding-top: 30px;
+        }
+        h1 {
+            color: rgba(199, 115, 37, 0.89);
+            width: 60%; 
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.8); 
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            margin-top: 10px; 
+            margin-bottom: -18%; 
+            border-radius: 15px 15px 0 0; 
+            text-align:center;
+            padding: 10px; 
+        }
+
+        .logo{
+            height: 100px;
+            width: auto;
+            margin-top: 1vh;
+            margin-bottom: 3vh;
+        }
+        
+        .back-button {
+            position: absolute; 
+            top: 50px; 
+            left: 50px;
+        }
+
+        .back-button a {
+            display: block; 
+        }
+
+        .back-button img {
+            display: block; 
+            width: 50px; 
+            height: auto; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <img src="/images/gmblogo.png" alt="logo" class="logo">
+        <h1>About Famagusta</h1>
+        <div class="content">
+            <p><%= aboutText %></p>
+        </div>
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div> 
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor Page</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        .body,html{
+            height: 100%;
+            margin: 0;
+            background-image: url('/images/mayorpagebackground.jpg');
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+        }
+        .mayor-container{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 70%;
+            width: 100%; 
+            max-height: 80%;
+            height: 100%;
+            box-sizing:border-box;
+            position: relative;
+            top: 70px;
+            overflow-y: auto; 
+            height: 80vh;
+        }
+
+        .mayor-container p{
+            text-align: left;
+            font-size: large;
+            font-weight: 700;
+            display: flex;
+            margin-right: 50px;
+            color: black;
+        }
+        .message {
+            display: flex;
+            justify-content: space-between; /* İçeriği sağ ve sol tarafa yayar */
+            align-items: center; /* İçerikleri dikey eksen boyunca ortalar */
+            text-align: left; /* Text left align for the text part */
+            border-bottom: 2px solid rgba(199, 115, 37, 0.89); /* Her mesajın altına çizgi çeker */
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        .message-content{
+            flex: 1; /* Mesaj içeriğinin esnekliğini sağlar */
+            margin-right: 20px; /* Butonlarla arasında biraz boşluk bırakır */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .message-actions {
+            display: flex;
+            flex-direction: column; /* Butonları dikey sıralar */
+            align-items: flex-start; /* Butonları flex start ile hizalar */
+        }
+
+        .message button{
+            display: inline-block;
+            padding: 12px 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(199, 115, 37, 0.89);
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            transition: background 0.3s ease , width 0.3s ease  , color 0.2s ease , border-radius 0.5s ease;
+            border-radius: 8px;
+            margin: 8px 0; 
+            width: 70%; 
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .message button:hover{
+            background: rgba(255, 255, 255, 0.9);
+            width: 70%;
+            font-weight: 1200;
+            border-radius: 30px;
+            color: rgba(199, 115, 37, 0.89);
+        }
+
+        .mayor-container h1 {
+            color: rgba(199, 115, 37, 0.89);
+            width: 60%; 
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.8); 
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            margin-top: 10px; 
+            margin-bottom: -18%; 
+            border-radius: 15px 15px 0 0; 
+            text-align:center;
+            padding: 10px; 
+            margin-bottom: 50px;
+            align-self: center;
+            margin: 10 auto;
+            
+        }
+
+        .logo{
+            height: 80px;
+            width: auto;
+            margin-top: 1vh;
+            margin-bottom: 3vh;
+            align-self: center;
+            margin: 0 auto;
+
+        }
+        
+
+        .log-out{
+            position: absolute; 
+            top: 50px; 
+            right: 50px;
+        }
+        .log-out p{
+            text-align: left;
+            font-size: large;
+            font-weight: 700;
+            display: flex;
+            color: rgba(199, 115, 37, 0.89);
+            transition:  font-size 0.5s ease;
+        }
+        .log-out p:hover{
+            text-align: left;
+            font-size: x-large;
+            font-weight: 1000;
+            display: flex;
+        }
+        .log-out a{
+            text-decoration: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="mayor-container">
+        <img src="/images/gmblogo.png" alt="logo" class="logo">
+        <h1>Messages for Mayor</h1>
+        <% messages.forEach(function(message) { %>
+            <div class="message">
+                <div class="message-content">
+                    <p>Name : <%= message.name %></p>
+                    <p>Email : <%= message.email %></p>
+                    <p>Message : <%= message.message %></p>
+                </div>
+                <div class="message-actions">
+                    <button onclick="location.href='mailto:<%= message.email %>'">Reply Message</button>
+                    <button onclick="deleteMessage('<%= message._id %>')">Delete Message</button>
+                </div>
+            </div>
+        <% }); %>
+        
+        <div class="log-out">
+            <a href="/workers" target="_self">
+                <p>Log out</p>
+            </a>
+        </div>
+    </div>
+    <script>
+        function deleteMessage(messageId) {
+          fetch('/delete-message/' + messageId, {
+            method: 'DELETE'
+          })
+          .then(response => response.json())
+          .then(data => {
+            if(data.success) {
+              alert('Message deleted successfully');
+              // Burada mesajı DOM'dan silmek için bir kod ekleyebilirsin.
+            } else {
+              alert('Error deleting message');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+        }
+        </script>
+</body>
+</html>

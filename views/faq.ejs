@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        body, html{
+            background-image: url('/images/contactbackground.jpg');
+            margin: 0;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .back-button {
+            position: absolute; 
+            top: 50px; 
+            left: 50px;
+        }
+
+        .back-button a {
+            display: block; 
+        }
+
+        .back-button img {
+            display: block; 
+            width: 50px; 
+            height: auto; 
+        }
+
+        .faq-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 80%;
+            width: 100%; 
+            max-height: 70%;
+            height: 100%;
+            box-sizing:content-box;
+            position: relative;
+            top: 10%;
+        }
+
+        #content {
+            height: 700px; 
+            overflow-y: auto;
+            padding-left: 100px;
+            padding-top: 80px;
+            width: 100%;
+            
+            }
+
+        #content > .content-item {
+            display: flex;
+            max-width: max-content;
+            align-items: center;    
+            justify-content: flex-start;
+            text-align: center;
+            margin: 20px 10px;
+            padding: 10px;
+            width: 90%;
+            border-bottom: 1px solid black;
+            
+            
+            }
+        
+        .content-item h2 {
+            text-align: left;
+            font-size: large;
+            font-weight: 700;
+            display: flex;
+            margin-right: 50px;
+            color: rgba(199, 115, 37, 0.89);
+
+            }
+    
+        .content-item p {
+            text-align: justify;
+            font-size:medium;
+            font-weight: 600;
+            color: rgba(199, 115, 37, 0.89);
+            } 
+        
+        .content-item h3 {
+            text-align: left;
+            justify-content: flex-start;
+            font-size:medium;
+            font-weight: bold;
+            margin-left: 10px;
+            margin-right: 8px;
+
+            }
+        .location {
+            font-size: medium;
+            font-weight: bold;
+            color: rgba(199, 115, 37, 0.89);
+            text-decoration: none;
+            transition: color 0.5s ease;
+            margin-left: 10px;
+            margin-right: 8px;
+            }
+
+        .location:hover{
+            color: black;
+            } 
+
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div>
+
+        <div id="content">
+
+            <div class="content-item">
+                <h2>Is there a dog shelter?</h2>
+                <h3>Yes, there is. Here is the Facebook link :</h3>
+                <a href="https://www.facebook.com/gmbbarinak" target="_blank" class="location">Famagusta Municipality Dog Shelter and Rehabilitation Center</a>
+            </div>
+
+            <div class="content-item">
+                <h2>What are your sister municipalities?</h2>
+                <h3>Our sister municipalities are :</h3>
+                    <a href="https://www.izmir.bel.tr/" target="_blank" class="location">İzmir Municipality</a>
+                    <h3>|</h3>
+                    <a href="https://www.antalya.bel.tr/" target="_blank" class="location">Antalya Municipality</a>
+                    <h3>|</h3>
+                    <a href="https://www.struga.org/" target="_blank" class="location">Struga Municipality</a>
+            </div>
+
+            <div class="content-item">
+                <h2>What needs to be done to become a new water subscriber? What are the required documents?</h2>
+                
+                <h3>A document proving that the house, office, or land belongs to you (Title Deed or Sales Agreement) - 
+                        Building Permit - Site Plan (Plot Map) - Building Inspection Approval or Permanent Connection Certificate - A photocopy of the ID card of the person who will take the water -  
+                       | It is required to apply in person to the Famagusta Municipality with these documents.</h3>
+               
+            </div>
+
+            <div class="content-item">
+                <h2>What are some important phone numbers?</h2>
+                <h3>Emergency Health - 112</h3>
+                <h3>|</h3>
+                <h3>Police Emergency - 155</h3>
+                <h3>|</h3>
+                <h3>Fire Department - 199</h3>
+                <h3>|</h3>
+                <h3>Forest Fire - 177</h3>
+                <h3>|</h3>
+                <h3>Coast Guard - 158</h3>
+            </div>
+
+            <div class="content-item">
+                <h2>How can I transfer the water subscription of the apartment I rented to the tenant?</h2>
+                <h3>Rental Agreement - 
+                    Tenant's Identity Card and a photocopy of the ID card - 
+                    Receipt of the fee paid to the Municipality Cashier |
+                    With these documents, the tenant must apply in person to the Municipality.</h3>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

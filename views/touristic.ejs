@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=,, initial-scale=1.0">
+    <title>Touristical Places</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+    <style>
+        body, html {
+                height: 100%;
+                margin: 0;
+                background-image: url('/images/touristicbackground.jpg');
+                background-position: center; 
+                background-repeat: no-repeat;
+                background-size: cover; 
+            }
+        .back-button {
+            position: absolute; 
+            top: 50px; 
+            left: 50px;
+            }
+    
+        .back-button a {
+            display: block; 
+            }
+    
+        .back-button img {
+            display: block; 
+            width: 50px; 
+            height: auto; 
+            }    
+    
+        .touristic-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(199, 115, 37, 0.89);
+            padding: 20px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0vh auto 10vh;
+            max-width: 90%;
+            width: 100%; 
+            max-height: 85%;
+            height: 100%;
+            box-sizing:content-box;
+            position: relative;
+            top: 5%;
+            }  
+
+        #content {
+            height: 700px; 
+            overflow-y: auto;
+            }
+
+        #content > .content-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 80px;
+            opacity: 1; 
+            visibility: visible;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            }    
+        #content > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 10px;
+            opacity: 0; 
+            transform: translateY(50px); 
+            visibility: hidden;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+    
+        #content > div.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            }
+    
+        .photo {
+            width: 20%;
+            margin-left: 3%;
+            margin-right: 5%;
+            transition: width 0.2s ease;
+            }
+        
+        .photo:hover{
+            width: 40%;    
+            }
+        .photo img {
+            width: 100%;
+            border-radius: 10px;
+            }
+    
+        .text {
+            width: 75%;
+            border-left: 2px solid rgba(199, 115, 37, 0.89);
+            padding-left: 5%;
+
+            }
+    
+        .text p {
+            text-align: justify;
+            font-size: large;
+            } 
+        
+        .text h3 {
+            text-align: justify;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        
+        .location {
+            font-size: large;
+            font-weight: bold;
+            color: rgba(199, 115, 37, 0.89);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .location:hover{
+            color: black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="touristic-container">
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div>
+
+        <div id="content">
+            <div class="content-item">
+                <img src="/images/lalamustafa.png" alt="Description 1" class="photo" />
+                <div class="text">
+                    <h3>Lala Mustafa Pasha Mosque - Saint Nicholas Cathedral</h3>
+                    <p>Constructed during the Lusignan period between 1298 – 1312, this building is one of the most beautiful Gothic structures of the entire Mediterranean world. The Lusignans first crowned the King of Cyprus at the St. Sophia Cathedral in Nicosia, and later also the King of Jerusalem at the St. Nicholas Cathedral in Famagusta. In 1571, although it was converted into a mosque by the Ottomans, no major changes were made. The cathedral's most beautiful and well-preserved western facade was inspired by the Reims Cathedral in France.
+
+                        The cathedral, with a unique Gothic-style window, has a 16th-century Venetian gallery in the courtyard that is still in use today as a madrasa. There is a Venetian coat of arms above the rounded entrance windows. Some animal figures are believed to have originated from a monument in Salamis. Like most Cypriot churches, the cathedral's apse is oriented eastward and is triple-bayed. The building is among the touristic attractions in the city of Famagusta.
+                        
+                        The windows above have been well preserved, and in front of the western facade, there are two chapels. There is a historic sycamore fig in front of the building, known locally as the "executioner’s tree" (Ficus Sycomorus). It is said that this tree was planted when construction began. A particular feature of the tree is said to bear fruit seven times a year.</p>
+                    <p><a href="https://www.google.com/maps/place/Lala+Mustafa+Pa%C5%9Fa+Camii/@35.1248741,33.942514,17z/data=!3m1!4b1!4m6!3m5!1s0x14dfc83a8c129ab5:0xf11c526dd1c98205!8m2!3d35.1248741!4d33.942514!16s%2Fg%2F11k1lwks8h?entry=ttu" target="_blank" class="location">Location </a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/salamis.jpg" alt="Description 2" class="photo" />
+                <div class="text">
+                    <h3>Salamis Ancient City</h3>
+                    <p>The history of Salamis dates back to the 11th century BC and was founded after the local people of Enkomi migrated following an earthquake. It’s particularly advisable to visit Salamis before noon as there is hardly any shade available.
+
+                        The ancient Salamis city, about 11 km from the city of Famagusta, began to rise during the Bronze Age with influences from tribes coming from Anatolia, and these were joined by the Achaeans from Greece in Cilicia. It is believed that the city was founded by Teucer, son of Telamon, the king of Salamis Island and hero of Troy. After the Assyrian dominance in 707 BC, it is understood that Salamis King Evelthon gained control of the region around 560 BC, as inferred from the coins minted. In 499 BC, Athenian general Kimon ended the Persian rule in Cyprus with a successful military expedition but passed away, and the Athenians subsequently abandoned their intentions of controlling Cyprus. Later, Phoenician traders took over, but trade and other areas began to decline. In 411 BC, members of the Teucrid family, especially Evagoras, managed to take over the rule of Salamis.
+                        
+                        To maintain control over the entire island, Salamis was frequently besieged by the Persians and had to pay tribute to the Persian King. This situation continued until the time of Alexander the Great. The Salamis King Pythagoras, because he provided military assistance to Alexander, was rewarded with the city of Tamassus after Alexander's death. Alexander's successors changed hands continuously in Salamis. Under the administration of Ptolemaic Egypt beginning in 294 BC, Cyprus found peace, and Salamis continued as the island's capital city throughout the Roman domination.
+                        
+                        Most of today's ruins date back to the Roman period. Under Roman rule, the city had its own senate and council of elders. The city was heavily damaged by the Jewish revolts in 76 and 77 AD and by earthquakes in 116 AD. Later, the island was attached to the province of Antioch, and because Salamis port was the first stop for ships coming from Syria, the city achieved a significant prominence. Large earthquakes in 232 and 342 AD caused great damage to the city. Following this, Byzantine Emperor Constantine had the city rebuilt on a smaller scale and named it Constantia. The city of Baf, now known as Paphos, became the capital of Cyprus. Later, due to the Arab invasions and earthquakes around 647 AD, the city was abandoned, and the population migrated to the region which now forms the modern city of Famagusta.</p>
+                    <p><a href="https://www.google.com/maps/place/Salamis+Harabeleri/@35.1870645,33.903535,17z/data=!3m1!4b1!4m6!3m5!1s0x14dfb7d18cb30f81:0xc4730b27ee43c6e0!8m2!3d35.1870645!4d33.903535!16s%2Fg%2F11v63w83qx?hl=tr&entry=ttu" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/stbarnabas.jpg" alt="Description 3" class="photo" />
+                <div class="text">
+                    <h3>St. Barnabas Monastery</h3>
+                    <p>St. Barnabas, born into a Jewish family in Salamis, after receiving his education in Jerusalem, returns to Cyprus and starts to work with St. Paul around 45 AD. This results in hostility from the Cypriot citizens who are against his teachings, leading to his martyrdom; his body is set to be thrown into the sea after being killed, but is instead concealed in a swamp by his students. St. Barnabas's disciples, following his demise, secretly bury the body in a cave at Salamis and place a copy of the Gospel of St. Matthew that he had made on his chest. The location of the body remains hidden for many years.
+
+                        432 years later, the bishop Anthemios, claiming to have seen the grave in a dream, asks for it to be opened. With the discovery of the Gospel of St. Matthew by his side, St. Barnabas is identified. This discovery is reported to Emperor Zeno in Istanbul, which leads to the Cypriot church gaining special recognition. The emperor provides a substantial donation for the construction of a monastery on the site where he was buried. The monastery is built in 477 AD. The monastery includes a church, as well as residential rooms for monks, and a mill nearby which is believed to have been a place where markets were held. The monastery is situated 4 km from the city of Famagusta.
+                        
+                        Inside the monastery is the St. Barnabas Icon and Archaeological Museum, which houses a rich collection of icons mostly from the 18th century. Some basalt millstones in the courtyard of the monastery are from the settlement area of Enkomi, and others are from water and stone structures that are believed to have been brought from Salamis. Rooms where priests lived have been restored and turned into an archaeological museum. The museum allows visitors to view a variety of works from Cyprus's Neolithic period to the Roman era. In addition, various examples of copper and marble works are displayed in the museum.<p>
+                    <a href="https://www.google.com/maps/place/St.+Barnabas+Arkeoloji+ve+%C4%B0kon+M%C3%BCzesi/@35.1747436,33.8803749,17z/data=!3m1!4b1!4m6!3m5!1s0x14dfb5e0b5e93567:0x9f7304b7a30b7f63!8m2!3d35.1747436!4d33.8803749!16s%2Fg%2F1thlqm14?entry=ttu" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/othello.jpg" alt="Description 4" class="photo" />
+                <div class="text">
+                    <h3>Othello Castle</h3>
+                    <p>Constructed in the 14th century by the Lusignans, Othello Castle is one of the main entrance gates to the city of Famagusta. The original coat of arms of St. Mark's Lion above the entrance of the castle bears the name of the Venetian Captain Nicolo Foscarini, dating back to 1492. The castle is surrounded by deep ditches, and its structure includes towers and artillery batteries with long corridors. Inside the courtyard of the castle, there are parts built by the Ottomans and cannons belonging to the Spaniards made of iron and stone. The Black Gate is preserved as a half-moon shaped bastion known as Ravelin. In addition, underground rooms that were used as a chapel and prison are located here.
+
+                        The current name of the castle began to be used during the English period. A part of Shakespeare's famous tragedy takes place in a port town of Cyprus. The play's hero, Othello, is known as the Moor, which is thought to be related to the author hearing the surname of the Venetian governor meaning 'Moor', Christoforo Moro, and assuming he was a dark-skinned man.
+                        
+                        Today, the hall inside the castle hosts various art and cultural events. It is the venue for the traditional Magusa Culture, Art and Tourism Festival organized by the Famagusta Municipality. The castle is one of the symbolic structures of the city of Famagusta.<p>
+                    <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14dfc825232b3729:0xe4d05696dbb2d3cc?sa=X&ved=1t:8290&ictx=111" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/venediksarayi.jpg" alt="Description 5" class="photo" />
+                <div class="text">
+                    <h3>Venetian Palace Ruins</h3>
+                    <p>The Palazzo del Proveditore, commonly known as the Venetian Palace, is a royal palace constructed by the King of the Lusignans in Cyprus and located in Famagusta.
+
+                        Situated to the west of Namık Kemal Square and near the St. Nicholas Cathedral, this palace was used as the second residence by the Lusignan kings after Nicosia in Famagusta.
+                        
+                        Although the exact date of the palace's construction is unclear, the term “domini regis Cipri,” which means "Palace of the King of Cyprus," used by the Genoese Notary Lamberto di Sambuceto, corresponds to the years 1300-1302.
+                        
+                        It served as a residence until it was damaged by earthquakes during the reign of Peter II in 1369, after which only the massive facade and the back courtyard remained intact while the core parts of the palace were completely destroyed.
+                        
+                        However, during the Venetian rule, the city began transforming immediately from French medieval to Italian Renaissance. The capital of Cyprus was moved from Nicosia to Famagusta, and between 1552 – 1554, the remnants of the palace were largely renovated. Gothic features were replaced with Italian Renaissance architectural elements.
+                        
+                        Once the renovation was completed, the new palace was used as the residence of the Venetian Military Governor - the Proveditore. This palace is an immense building that reminds the people of Famagusta of their power and the influence of the Venetian governors. The gates of the palace open onto an area that was once considered the broadest square in all of Europe.
+                        
+                        The last occupant of the Palazzo del Proveditore in 1569 was Marco Antonio Bragadin, the Commander-in-Chief of Famagusta, who directed the defense of the Venetians against the Ottoman conquest in 1570. His life ended in August 1571, marking the beginning of a slow death process that culminated in the Ottomans capturing the city, thus ending the Western presence on the Mediterranean island for the next 300 years.
+                        
+                        During the Ottoman era, the palace was used for various purposes such as military barracks, a prison, and a storage area for military crew, and it served similar military order purposes during the English period.
+                        
+                        One of the prisoners who stayed here during the Ottoman period was Namık Kemal, considered the Shakespeare of Turkish Literature. Kemal, who was exiled to Cyprus for criticizing Ottoman ruler Sultan Abdülaziz, resided here from 1873-1876.
+                        
+                        There is a bronze bust named after the author, facing the Lala Mustafa Pasha Mosque opposite the palace.<p>
+                    <a href="https://www.google.com/maps/place/Venedik+Saray%C4%B1+Kal%C4%B1nt%C4%B1lar%C4%B1/@35.124367,33.94064,15z/data=!4m6!3m5!1s0x14dfc8309119c343:0x1a2d23f9cb1fa1f0!8m2!3d35.124367!4d33.94064!16s%2Fg%2F11b7q8w7f2?entry=ttu" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/stfrancis.jpg" alt="Description 6" class="photo" />
+                <div class="text">
+                    <h3>St. Francis Church</h3>
+                    <p>During the lifetime of St. Francis of Assisi, it was the most important structure of the Franciscan Order that came to Cyprus.
+
+                        The St. Francis Church was actually part of a Franciscan monastery that was constructed by priests, located north of the Venetian Royal Palace.
+                        
+                        It was built under the extensive patronage of the King of Cyprus, Henry II, who reigned from 1285-1324 and was known for his close relations with the Franciscans.
+                        
+                        The Franciscans were a religious group affiliated with the Catholic Church, founded in 1209 by St. Francis of Assisi. They were renowned for renouncing a life of wealth to embrace poverty and for their love, simplicity, and practices. It is believed that St. Francis himself visited Cyprus during his journey to the Holy Lands on the Fifth Crusade between 1217- 1221.
+                        
+                        The Franciscans constituted one of the oldest and most important Latin religious groups in Cyprus, and their monastery in Famagusta became one of the most significant religious structures in the city.
+                        
+                        The remains of this Franciscan Church are among the oldest of the Latin church buildings in Famagusta. The site has become a significant structure consisting of several buildings along with a monastery that once occupied a large area within the city. Indeed, due to its proximity, the royal palace once had a private entrance to the monastery and church via a covered path.
+                        
+                        Nobles of Famagusta, Genoese, and foreigners who contributed to the church's construction were buried in this area, with graves dating back to 1314-1474 discovered during archaeological studies.
+                        
+                        In plan, it resembles the later-built Church of St. Mary with its three-sided apse, and later, side chapels were added extending from the center of the nave to the north and south. The outer walls are supported by buttresses, and visitors can observe medieval stonework outside the western door.
+                        
+                        It is believed that the monastery, which has not survived to the present day, was located southwest of the church.<p>
+                    <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14dfc83086576baf:0x6a5aba0e86a24b0d?sa=X&ved=1t:8290&ictx=111" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <img src="/images/namikkemal.jpg" alt="Description 7" class="photo" />
+                <div class="text">
+                    <h3>Namık Kemal Dungeon</h3>
+                    <p>In Famagusta lies a historical structure that is also known as the temporary abode of the esteemed Turkish writer Namık Kemal.
+
+                        Referred to as the Shakespeare of Turkish literature, Kemal spent 38 months of his life between 1873-1876 in this building.
+                        
+                        Perceived as a potential revolutionary and a threat, Kemal was exiled by Sultan Abdülaziz shortly after the first performance of his drama 'Vatan yahut Silistre', centered around the Siege of Silistra, at the Gedik Paşa Theatre in Istanbul on April 9, 1873. The play was considered dangerous by the Ottoman government for promoting nationalism and liberalism.
+                        
+                        The place where Kemal was exiled was originally part of the Venetian Palazzo del Proveditore, but the current prison was constructed in a corner of the dilapidated palace during the Ottoman period.
+                        
+                        The building has two distinct levels – the lower features pre-Ottoman Lusignan architecture, while the upper is distinctly Ottoman in style. The building is L-shaped with the lower level made of ashlar and the upper constructed with lath and plaster.
+                        
+                        The ground floor is rectangular, with only a domed ceiling, and features a low-arched entrance door and an iron-barred window opening onto the courtyard of the Venetian Palace. Though termed a dungeon, it is not underground.
+                        
+                        Initially, Namık Kemal stayed on the ground floor upon his arrival in Famagusta. Later, in more detailed notes, he described his first cell as a very dark and unsuitable place for living. The room is just over ten square meters with no furniture.
+                        
+                        Later, with the permission of the Governor of Cyprus, Veysi Paşa, he was transferred to the upper floor. This floor is accessed by steep stone stairs on the side of the building, leading to two large windows, a front descent, and a marble floor.
+                        
+                        When Abdülaziz was deposed, Namık Kemal was pardoned by Sultan Murad V and returned to Istanbul on June 29, 1876. During his imprisonment in the Famagusta dungeon, Namık Kemal wrote the plays 'Gülnihal' and 'Akif Bey'.
+                        
+                        The dungeon's restoration in the 1990s allowed for its use as a museum housing many items and documents related to the now appreciated writer.
+                        
+                        The same dungeon, according to rumors, was also used by British authorities during World War I.
+                        
+                        A bronze bust of Namık Kemal faces the square bearing his name across from the dungeon. Referenced by Mustafa Kemal Atatürk, the founder of the Republic of Turkey, as a significant source of inspiration for his works, the writer continues to hold a heroic status in literature for many people in Turkey and Northern Cyprus today.<p>
+                    <a href="https://www.google.com/maps/place/Nam%C4%B1k+Kemalin+Zindan%C4%B1/@35.1247222,33.9419444,17z/data=!3m1!4b1!4m6!3m5!1s0x14dfc83a7ddff30b:0xb26da4538d29d0d!8m2!3d35.1247222!4d33.9419444!16s%2Fg%2F11bxjgsbg4?hl=tr&entry=ttu" target="_blank" class="location">Location</a></p>
+                </div>
+            </div>
+
+
+        </div>
+        
+
+    </div>
+</body>
+</html>

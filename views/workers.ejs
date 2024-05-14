@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers Direct</title>
+    <link rel="icon" type="image/png" href="/images/gmblogo.png">
+</head>
+<style>
+    .body,html{
+        height: 100%;
+        margin: 0;
+        background-image: url('/images/transportbackground.jpg');
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-size: cover; 
+        }
+    .back-button {
+        position: absolute; 
+        top: 50px; 
+        left: 50px;
+        }
+
+    .back-button a {
+        display: block; 
+        }
+
+    .back-button img {
+        display: block; 
+        width: 50px; 
+        height: auto; 
+        }
+
+    .login-container{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        padding-right: 20px;
+        padding-left: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0vh auto 10vh;
+        max-width: 70%;
+        width: 100%; 
+        max-height: 80%;
+        height: 100%;
+        box-sizing:border-box;
+        position: relative;
+        top: 70px;
+        height: 80vh;
+        padding-bottom: 50px;
+    }   
+    .login-container h2{
+        text-align: left;
+        font-size: x-large;
+        font-weight: 700;
+        display: flex;
+        margin-right: 50px;
+        color: black;
+    }
+    .login-container input{
+        display: inline-block;
+        width: calc(50% - 5px); 
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #000;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease, width 0.3s ease, color 0.2s ease, border-radius 0.3s ease;
+        border-radius: 12px;
+        margin: 8px 5px; 
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 35%;
+    }
+
+    .login-container input:user-invalid{
+        border: 3px solid red;
+    }
+
+    .login-container button{
+        display: inline-block;
+        padding: 12px 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(199, 115, 37, 0.89);
+        border: 1px solid rgba(199, 115, 37, 0.89);
+        transition: background 0.3s ease , width 0.3s ease  , color 0.2s ease , border-radius 0.3s ease;
+        border-radius: 8px;
+        margin: 8px 0; 
+        width: 20%; 
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .login-container button:hover{
+        background: rgba(255, 255, 255, 0.9);
+        width: 20%;
+        font-weight: 1200;
+        border-radius: 30px;
+        color: rgba(199, 115, 37, 0.89);
+    }
+    .login-container label{
+        text-align: left;
+        font-size: large;
+        font-weight: 700;
+        display: flex;
+        color: black;
+    }
+    #password {
+    -webkit-text-security: disc;
+    color: rgba(199, 115, 37, 0.89);
+    }
+    #username{
+        color: rgba(199, 115, 37, 0.89);
+    }
+
+</style>
+<body>
+    
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            
+            <input type="text" id="username" name="username" placeholder="username" required><br>
+            <input type="password" id="password" name="password" placeholder="password" required><br><br>
+            <button type="submit">Enter</button>
+        </form>
+        <div class="back-button">
+            <a href="/" target="_self">
+                <img src="/images/backbutton.png" alt="Back" />
+            </a>
+        </div> 
+    </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            if (username === 'mayor' && password === 'mayor123') {
+                window.location.href = '/mayorpage';
+            } else if (username === 'newsworker' && password === 'newsworker123') {
+                window.location.href = '/newsworkerpage';
+            } else if (username === 'billworker' && password === 'billworker123') {
+                window.location.href = '/billworkerpage';
+            } else {
+                alert('Invalid username or password');
+            }
+        };
+    </script>
+</body>
+</html>
